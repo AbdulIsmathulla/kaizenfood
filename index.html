@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaizen Foods – Authentic Japanese Cuisine in Saudi Arabia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===== LOADER ===== -->
+<!-- <div id="blackScreen">
+  <button id="closeLoader" aria-label="Skip intro">✕</button>
+  <div class="loader-fish"> </div>
+  <div class="loader-text">
+    <span>F</span><span>I</span><span>S</span><span>H</span>
+    <span>&nbsp;</span>
+    <span>F</span><span>A</span><span>C</span><span>E</span>
+  </div>
+  <div class="loader-bar"></div>
+</div> -->
+<div id="blackScreen">
+  <button id="closeLoader" aria-label="Skip intro">✕</button>
+  <div class="loader-fish" id="loaderFish">
+    <div class="loader-fish-shadow" id="loaderShadow"></div>
+    <div class="loader-fish-object" id="loaderObject">
+      <img src="Assets/fish/Single fish logo.png" alt="Kaizen Foods"
+           onerror="this.onerror=null; this.replaceWith(Object.assign(document.createElement('span'), {className:'loader-fish-fallback', textContent:'🐟'}));" />
+    </div>
+  </div>
+  <div class="loader-text">
+    <span>F</span><span>I</span><span>S</span><span>H</span>
+    <span>&nbsp;</span>
+    <span>F</span><span>A</span><span>C</span><span>E</span>
+  </div>
+  <div class="loader-bar"></div>
+</div>
+<!-- <div id="blackScreen">
+  <button id="closeLoader" aria-label="Skip intro">✕</button>
+  <div class="loader-fish" id="loaderFish">
+    <div class="loader-fish-shadow" id="loaderShadow"></div>
+    <div class="loader-fish-object" id="loaderObject">
+      <img src="Assets/fish/fish22.jpg" alt="Kaizen Foods" />
+    </div>
+  </div> -->
+  <!-- <div class="loader-text">
+    <span>F</span><span>I</span><span>S</span><span>H</span>
+    <span>&nbsp;</span>
+    <span>F</span><span>A</span><span>C</span><span>E</span>
+  </div>
+  <div class="loader-bar"></div>
+</div> -->
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="navbar">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+      <img src="Assets/kaizen logo.jpg" alt="Kaizen Foods Logo" height="44" style="border-radius:8px;" />
+      Kaizen Foods
+    </a>
+    <button class="navbar-toggler collapsed" type="button"
+      data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="toggler-line"></span>
+      <span class="toggler-line"></span>
+      <span class="toggler-line"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#brand">Brands</a></li>
+        <li class="nav-item"><a class="nav-link" href="#footer">Contact</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="menuDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
+          <ul class="dropdown-menu" aria-labelledby="menuDropdown">
+            <li><a class="dropdown-item" href="full-menu.html">🍣 Our Menu</a></li>
+            <li><a class="dropdown-item" href="branch-location.html">📍 Locations</a></li>
+            <li><a class="dropdown-item" href="bio.html">👥 Service &amp; Bio</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="home">
+  <video autoplay muted loop playsinline class="bg-video" onloadeddata="this.playbackRate=0.6">
+    <source src="Assets/video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Authentic Japanese Cuisine · Saudi Arabia</span>
+    <h1 class="wave-text">
+      <span>K</span><span>a</span><span>i</span><span>z</span><span>e</span><span>n</span>
+      <span>&nbsp;</span>
+      <span>F</span><span>o</span><span>o</span><span>d</span><span>s</span>
+    </h1>
+    <p class="hero-sub">Bringing the rich heritage and authentic flavors of Japan to the heart of Saudi Arabia — crafted with passion, served with precision.</p>
+    <div class="hero-ctas">
+      <a href="full-menu.html" class="btn-primary-custom">View Our Menu</a>
+      <a href="branch-location.html" class="btn-outline-custom">Find a Branch</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <div class="about-img-wrap slide-top">
+          <img src="Assets/About.jpg" alt="About Kaizen Foods" class="about-img-main" />
+          <div class="about-badge">
+            <span class="big">5+</span>
+            <span class="sm">Years of Excellence</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <span class="chip slide-top">Our Story</span>
+        <h2 class="section-heading slide-top delay">
+          Where Japan Meets<br><span>Saudi Arabia</span>
+        </h2>
+        <p class="section-sub slide-top delay">
+          At <strong>Kaizenfoods</strong>, we bring the rich heritage and authentic flavors of Japan to the heart of Saudi Arabia. Our mission is to deliver quality food with consistency and passion — in every bite, every visit, every branch.
+        </p>
+        <div class="about-features">
+          <div class="about-feature slide-top delay">
+            <div class="about-feature-icon">🍣</div>
+            <div class="about-feature-text">
+              <strong>Authentic Japanese Recipes</strong>
+              <span>Traditional techniques, finest ingredients sourced daily</span>
+            </div>
+          </div>
+          <div class="about-feature slide-top delay">
+            <div class="about-feature-icon">⚡</div>
+            <div class="about-feature-text">
+              <strong>Served in 90 Seconds</strong>
+              <span>Fast without compromise — our signature promise</span>
+            </div>
+          </div>
+          <div class="about-feature slide-top delay">
+            <div class="about-feature-icon">📍</div>
+            <div class="about-feature-text">
+              <strong>13+ Branches and 3+ Cloud kitckens Across KSA</strong>
+              <span>Riyadh, Jeddah, Al Khobar, AlUla and more</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS STRIP ===== -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 col-md-3 stat-item slide-top">
+        <div class="stat-num">1M+</div>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <div class="col-6 col-md-3 stat-item slide-top delay">
+        <div class="stat-num">13+</div>
+        <div class="stat-label">Branches in KSA</div>
+      </div>
+      <div class="col-6 col-md-3 stat-item slide-top delay-2">
+        <div class="stat-num">90S</div>
+        <div class="stat-label">Average Serve Time</div>
+      </div>
+      <div class="col-6 col-md-3 stat-item slide-top delay">
+        <div class="stat-num">5★</div>
+        <div class="stat-label">Customer Rating</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="chip slide-top">Our Gallery</span>
+      <h2 class="brand-title slide-top delay">A Feast for the Eyes</h2>
+    </div>
+    <div class="gallery-wrapper slide-top">
+      <div class="gallery">
+        <div class="gallery-item"><img src="Assets/G1.jpg" alt="Dish 1" /></div>
+        <div class="gallery-item"><img src="Assets/G2.jpg" alt="Dish 2" /></div>
+        <div class="gallery-item"><img src="Assets/G3.jpg" alt="Dish 3" /></div>
+        <div class="gallery-item"><img src="Assets/G4.jpg" alt="Dish 4" /></div>
+        <div class="gallery-item"><img src="Assets/G5.jpg" alt="Dish 5" /></div>
+        <div class="gallery-item"><img src="Assets/G6.jpg" alt="Dish 6" /></div>
+        <div class="gallery-item"><img src="Assets/G7.jpg" alt="Dish 7" /></div>
+        <div class="gallery-item"><img src="Assets/G8.jpg" alt="Dish 8" /></div>
+        <div class="gallery-item"><img src="Assets/G8.jpg" alt="Dish 9" /></div>
+      </div>
+      <button class="prev-btn" aria-label="Previous">&#8592;</button>
+      <button class="next-btn" aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPECIALS MENU ===== -->
+<section id="menu">
+  <div class="container">
+    <div class="text-center mb-2">
+      <span class="chip slide-top">Chef's Picks</span>
+      <h2 class="brand-title slide-top delay">Specials Menu</h2>
+      <p class="section-sub mx-auto mt-3 slide-top delay-2">Hand-picked favourites crafted by our executive chef — available at all branches.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card slide-top">
+        <div class="menu-card-img-wrap">
+          <img src="Assets/G4.jpg" alt="Sushi Roll" class="menu-img">
+          <span class="menu-tag">Bestseller</span>
+        </div>
+        <div class="menu-body">
+          <h3 class="menu-title">Sushi Roll</h3>
+          <p class="menu-desc">Fresh salmon wrapped in rice and seaweed, topped with creamy avocado and our signature sauce.</p>
+          <div class="menu-footer">
+            <span class="menu-price">SAR 42</span>
+            <span class="menu-calorie"> Calorie 190</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card slide-top delay">
+        <div class="menu-card-img-wrap">
+          <img src="Assets/G1.jpg" alt="Ramen Bowl" class="menu-img">
+          <span class="menu-tag" style="background:var(--teal);color:#fff;">New</span>
+        </div>
+        <div class="menu-body">
+          <h3 class="menu-title">Ramen Bowl</h3>
+          <p class="menu-desc">Rich tonkotsu broth with hand-pulled noodles, chashu pork, soft egg, and seasonal veggies.</p>
+          <div class="menu-footer">
+            <span class="menu-price">SAR 36</span>
+            <span class="menu-calorie"> Calorie 190</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card slide-top delay-2">
+        <div class="menu-card-img-wrap">
+          <img src="Assets/G2.jpg" alt="Tempura" class="menu-img">
+          <span class="menu-tag" style="background:var(--crimson);color:#fff;">Spicy</span>
+        </div>
+        <div class="menu-body">
+          <h3 class="menu-title">Tempura Platter</h3>
+          <p class="menu-desc">Crispy light-battered shrimp and vegetables, served with our house dipping sauce.</p>
+          <div class="menu-footer">
+            <span class="menu-price">SAR 34</span>
+            <span class="menu-calorie"> Calorie 190</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <a href="full-menu.html" class="btn-primary-custom">View Full Menu →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MOVEMENTS / CUSHION ===== -->
+<section id="movement">
+  <div class="movement-heading">
+    <span class="chip">Experience</span>
+    <h2 class="brand-title">Our Special Spaces</h2>
+  </div>
+  <div class="split-row">
+    <div class="split-media">
+      <video src="Assets/video.mp4" autoplay muted loop playsinline></video>
+    </div>
+    <div class="split-content">
+      <span class="chip">Ambiance</span>
+      <h3 class="section-heading">The Cushion Lounge</h3>
+      <p>Step into a space designed for comfort and calm. Our cushion area invites you to slow down, savour every bite, and enjoy the art of Japanese dining at its most relaxed.</p>
+    </div>
+  </div>
+  <div class="split-row reverse">
+    <div class="split-media">
+      <img src="Assets/Brand/Call me mer4.jpg" alt="Private dining" />
+    </div>
+    <div class="split-content">
+      <span class="chip">Events</span>
+      <h3 class="section-heading">Private &amp; Group Dining</h3>
+      <p>From corporate gatherings to family celebrations, we offer dedicated private spaces and curated menus — because every occasion deserves something extraordinary.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BRANDS ===== -->
+<section id="brand">
+  <div class="container">
+    <div class="text-center mb-2">
+      <span class="chip slide-top">Our Family</span>
+      <h2 class="brand-title slide-top delay">Our Brands</h2>
+    </div>
+    <div class="brand-grid">
+      <div class="brand-item slide-top">
+        <img src="Assets/Brand/Call me mer4.jpg" alt="Call Me Mer" />
+        <div class="brand-item-overlay">
+          <span class="brand-item-name">Call Me Mer</span>
+        </div>
+      </div>
+      <div class="brand-item slide-top delay">
+        <img src="Assets/Brand/fish face.jpg" alt="Fish Face" />
+        <div class="brand-item-overlay">
+          <span class="brand-item-name">Fish Face</span>
+        </div>
+      </div>
+      <div class="brand-item slide-top delay-2">
+        <img src="Assets/Brand/fish face.jpg" alt="Kaizen Express" />
+        <div class="brand-item-overlay">
+          <span class="brand-item-name">Kaizen Express</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEO SECTION ===== -->
+<section id="video">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="gallery-item-video slide-top">
+          <video autoplay muted loop playsinline poster="Assets/G1.jpg" class="responsive-video">
+            <source src="Assets/Fishface reel.mov" type="video/mp4">
+          </video>
+          <video autoplay muted loop playsinline poster="Assets/G1.jpg" class="responsive-video">
+            <source src="Assets/video.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="col-lg-6 slide-top delay">
+        <span class="chip">Behind the Scenes</span>
+        <h2 class="section-heading">Crafted with <span>Passion</span></h2>
+        <p class="section-sub">From the first slice of the food to final plating, every dish at Kaizen is a craft. Watch how our chefs bring Tokyo's finest techniques to your table in Riyadh.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DELIVERY PARTNERS ===== -->
+<section id="delivery">
+  <div class="container text-center mb-4">
+    <span class="chip slide-top">Order Online</span>
+    <h2 class="brand-title slide-top delay">Delivery Partners</h2>
+    <p class="section-sub mx-auto mt-3 slide-top delay-2">Get your favourite Kaizen dishes delivered right to your door.</p>
+  </div>
+  <div class="delivery-track-wrap">
+    <div class="delivery-track">
+      <div class="delivery-item"><img src="Assets/Riyadh/Delivery partner/keeta.webp" alt="Keeta" /></div>
+      <div class="delivery-item"><img src="Assets/Riyadh/Delivery partner/Jahez.jpg" alt="Jahez" /></div>
+      <div class="delivery-item"><img src="Assets/Riyadh/Delivery partner/ninja.png" alt="Ninja" /></div>
+      <div class="delivery-item"><img src="Assets/Riyadh/Delivery partner/the Chefz.jpeg" alt="The Chefz" /></div>
+      <div class="delivery-item"><img src="Assets/Riyadh/Delivery partner/Zyda.webp" alt="Zyda" /></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="delivery-item"><img src="Assets/Riyadh/Delivery partner/Hunger station" alt="Keeta" /></div>
+      <div class="delivery-item"><img src="Assets/Riyadh/Delivery partner/noon.jpg" alt="Jahez" /></div>
+      <div class="delivery-item"><img src="Assets/Riyadh/Delivery partner/To You.png" alt="The Chefz" /></div>
+      <div class="delivery-item"><img src="Assets/Riyadh/Delivery partner/keeta.webp" alt="Ninja" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<section id="footer">
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <span class="footer-brand-name">Kaizen Foods</span>
+          <p class="footer-brand-desc">Bringing the authentic flavors of Japan to Saudi Arabia since 2010. Quality, consistency, and passion — in every bite.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+              <img src="Assets/Social Media logo/instagram.webp" alt="Instagram" />
+            </a>
+            <a href="#" aria-label="WhatsApp">
+              <img src="Assets/Social Media logo/WhatsApp.png" alt="WhatsApp" />
+            </a>
+            <a href="#" aria-label="TikTok">
+              <img src="Assets/Social Media logo/tik-tok.avif" alt="TikTok" />
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#brand">Our Brands</a>
+          <a href="full-menu.html">Full Menu</a>
+        </div>
+        <div class="footer-col">
+          <h4>Locations</h4>
+          <a href="branch-location.html">Riyadh Branches</a>
+          <a href="branch-location.html">Jeddah</a>
+          <a href="branch-location.html">Al Khobar</a>
+          <a href="branch-location.html">AlUla</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>📍 Al Takasusi, Riyadh</p>
+          <p>📞 +966 000 000 0000</p>
+          <p>✉️ info@fishface.sa</p>
+          <div class="footer-vision mt-3">
+            <img src="Assets/Social Media logo/Vision-2030.png" alt="Vision 2030" height="48" />
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Kaizen Foods. All Rights Reserved.</span>
+        <span></span>
+      </div>
+    </div>
+  </footer>
+</section>
+
+<button id="backToTop" title="Back to top" aria-label="Back to top">↑</button>
+<button
+    id="floatingButtonwhatsapp"
+    onclick="window.open('https://wa.me/966599416790?text=Hello this is Kaizenfoods how can i assist?', '_blank')"
+    title="WhatsApp"
+    aria-label="Chat on WhatsApp">
+    <img src="Assets/Social Media logo/WhatsApp.png" alt="WhatsApp">
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
