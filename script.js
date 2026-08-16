@@ -240,11 +240,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!buttons.length) return;
 
     const cards = document.querySelectorAll(".menu-card");
+    const sushiTitle = document.getElementById("sushiTitle");
 
     function filterMenu(type) {
         cards.forEach(card => {
-            // Guard: only touch cards that actually opted into filtering
-            // (i.e. have a data-size attribute). Leave everything else alone.
+            // Only filter cards that have data-size
             if (!card.dataset.size) return;
 
             card.style.display = (card.dataset.size === type) ? "block" : "none";
@@ -253,6 +253,11 @@ document.addEventListener("DOMContentLoaded", () => {
         buttons.forEach(btn => btn.classList.remove("active"));
         const activeBtn = document.querySelector(`[data-filter="${type}"]`);
         if (activeBtn) activeBtn.classList.add("active");
+
+        // Show Sushi title only for Regular
+        if (sushiTitle) {
+            sushiTitle.style.display = (type === "regular") ? "block" : "none";
+        }
     }
 
     buttons.forEach(button => {
@@ -261,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Show Regular menu on page load
+    // Default view
     filterMenu("regular");
 
 });
