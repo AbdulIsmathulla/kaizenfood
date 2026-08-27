@@ -567,7 +567,308 @@ body {
 }
 
 /* ===== GALLERY ===== */
+/* ===== MIRROR HALL GALLERY ===== */
+/* ===== 3D MIRROR HALL GALLERY ===== */
+
 #gallery {
+  --gallery-background: #02031d;
+  --gallery-gap: 26px;
+
+  position: relative;
+  padding: 90px 0 0;
+  color: #ffffff;
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(22, 26, 90, 0.42),
+      transparent 45%
+    ),
+    linear-gradient(
+      180deg,
+      #020322 0%,
+      #010218 58%,
+      #00010e 100%
+    );
+
+  overflow: hidden;
+}
+
+#gallery .brand-title {
+  color: #ffffff;
+}
+
+.gallery-wrapper {
+  position: relative;
+  width: 100%;
+  height: 680px;
+  overflow: hidden;
+
+  /*
+   * Controls the depth of the 3D hall.
+   * Lower value = stronger 3D.
+   */
+  perspective: 900px;
+  perspective-origin: 50% 42%;
+}
+
+/* Reflective floor */
+.gallery-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  height: 42%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15, 21, 181, 0) 0%,
+      rgba(6, 8, 62, 0.25) 20%,
+      rgba(0, 1, 12, 0.88) 100%
+    );
+
+  pointer-events: none;
+}
+
+.gallery {
+  position: absolute;
+  top: 35px;
+  left: 0;
+
+  display: flex;
+  align-items: flex-start;
+  width: max-content;
+  gap: var(--gallery-gap);
+
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.gallery-set {
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  gap: var(--gallery-gap);
+  transform-style: preserve-3d;
+}
+
+.gallery-item {
+  position: relative;
+  flex: 0 0 clamp(190px, 17vw, 280px);
+  width: clamp(190px, 17vw, 280px);
+  height: clamp(320px, 31vw, 470px);
+  margin: 0;
+
+  border-radius: 5px;
+  background: #05061d;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+
+  /*
+   * JavaScript updates these values while moving.
+   */
+  transform:
+    translateZ(var(--depth, 0px))
+    rotateY(var(--rotate, 0deg))
+    scale(var(--scale, 1));
+
+  opacity: var(--opacity, 1);
+  will-change: transform, opacity;
+
+  transition:
+    filter 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 5px;
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 18px 35px rgba(0, 0, 0, 0.5);
+
+  /*
+   * Creates the floor reflection.
+   * Works in Chrome, Edge and Safari.
+   */
+  -webkit-box-reflect: below 10px
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.34),
+      rgba(255, 255, 255, 0.12) 40%,
+      transparent 82%
+    );
+}
+
+.gallery-title {
+  position: absolute;
+  left: 50%;
+  top: -32px;
+  width: 100%;
+
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 1.3;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  transform: translateX(-50%) translateZ(20px);
+  transition:
+    color 0.3s ease,
+    letter-spacing 0.3s ease;
+}
+
+.gallery-item:hover {
+  z-index: 20;
+  filter: brightness(1.12) saturate(1.08);
+}
+
+.gallery-item:hover img {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.22),
+    0 22px 55px rgba(183, 180, 180, 0.7),
+    0 0 35px rgba(166, 172, 248, 0.2);
+}
+
+.gallery-item:hover .gallery-title {
+  color: #ffffff;
+  letter-spacing: 2.5px;
+}
+
+/* Dark edges create the hall/tunnel appearance */
+.gallery-edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 30;
+  width: clamp(55px, 11vw, 190px);
+  pointer-events: none;
+}
+
+.gallery-edge-left {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    var(--gallery-background) 0%,
+    rgba(2, 3, 29, 0.75) 25%,
+    transparent 100%
+  );
+}
+
+.gallery-edge-right {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    var(--gallery-background) 0%,
+    rgba(2, 3, 29, 0.75) 25%,
+    transparent 100%
+  );
+}
+
+/* Bottom darkness over reflection */
+.gallery-wrapper::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  height: 100px;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #00010e
+  );
+
+  pointer-events: none;
+}
+
+/* ===== TABLET ===== */
+
+@media (max-width: 991.98px) {
+  #gallery {
+    --gallery-gap: 18px;
+    padding-top: 75px;
+  }
+
+  .gallery-wrapper {
+    height: 590px;
+    perspective: 800px;
+  }
+
+  .gallery-item {
+    flex-basis: clamp(180px, 29vw, 240px);
+    width: clamp(180px, 29vw, 240px);
+    height: clamp(300px, 48vw, 400px);
+  }
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 575.98px) {
+  #gallery {
+    --gallery-gap: 14px;
+    padding-top: 60px;
+  }
+
+  .gallery-wrapper {
+    height: 500px;
+    perspective: 650px;
+  }
+
+  .gallery {
+    top: 30px;
+  }
+
+  .gallery-item {
+    flex-basis: 52vw;
+    width: 52vw;
+    max-width: 215px;
+    height: 330px;
+  }
+
+  .gallery-title {
+    top: -27px;
+    font-size: 8px;
+    letter-spacing: 1.3px;
+  }
+
+  .gallery-edge {
+    width: 35px;
+  }
+}
+
+/* Motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-wrapper {
+    overflow-x: auto;
+  }
+
+  .gallery {
+    position: relative;
+    top: 30px;
+    left: 0;
+    transform: none !important;
+  }
+
+  .gallery-item {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+
+/* #gallery {
   padding: 100px 0;
   background: var(--sky);
   overflow: hidden;
@@ -628,7 +929,7 @@ body {
 
 @media (max-width: 1200px) { .gallery-item { width: 33%; } }
 @media (max-width: 900px)  { .gallery-item { width: 45%; } }
-@media (max-width: 600px)  { .gallery-item { width: 80%; } }
+@media (max-width: 600px)  { .gallery-item { width: 80%; } } */
 
 /* ===== MENU SPECIALS ===== */
 #menu {

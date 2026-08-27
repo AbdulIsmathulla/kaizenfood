@@ -1,54 +1,227 @@
 /* ===== GALLERY SLIDER ===== */
-(function () {
-  const gallery = document.querySelector(".gallery");
-  const items   = document.querySelectorAll(".gallery-item");
-  const nextBtn = document.querySelector(".next-btn");
-  const prevBtn = document.querySelector(".prev-btn");
-  if (!gallery || !items.length) return;
 
-  let index = 0;
-  let autoSlide;
+/* ===== MIRROR HALL INFINITE GALLERY ===== */
 
-  function getItemWidth() {
-    const item   = items[0];
-    const style  = getComputedStyle(item);
-    const margin = parseInt(style.marginRight) || 12;
-    return item.offsetWidth + margin;
+/* ===== 3D MIRROR HALL GALLERY ===== */
+
+document.addEventListener("DOMContentLoaded", function () {
+  const wrapper = document.querySelector("#gallery .gallery-wrapper");
+  const gallery = document.querySelector("#gallery .gallery");
+  const originalSet = document.querySelector("#gallery .gallery-set");
+
+  if (!wrapper || !gallery || !originalSet) {
+    return;
   }
 
-  function getVisible() {
-    const ww = document.querySelector(".gallery-wrapper").offsetWidth;
-    return Math.max(1, Math.floor(ww / getItemWidth()));
+  if (gallery.dataset.initialized === "true") {
+    return;
   }
 
-  function showSlide() {
-    gallery.style.transform = `translateX(-${index * getItemWidth()}px)`;
+  gallery.dataset.initialized = "true";
+
+  /* Duplicate the gallery for an infinite loop */
+  const clonedSet = originalSet.cloneNode(true);
+
+  clonedSet.setAttribute("aria-hidden", "true");
+
+  clonedSet.querySelectorAll("img").forEach(function (image) {
+    image.alt = "";
+  });
+
+  gallery.appendChild(clonedSet);
+
+  let galleryPosition = 0;
+  let loopWidth = 0;
+  let previousTime = performance.now();
+  let paused = false;
+
+  /*
+   * Movement speed in pixels per second.
+   *
+   * 20 = slow
+   * 35 = normal
+   * 55 = fast
+   */
+  const movementSpeed = 32;
+
+  function calculateSizes() {
+    const galleryStyle = getComputedStyle(gallery);
+    const gap = parseFloat(galleryStyle.gap) || 0;
+
+    loopWidth = originalSet.offsetWidth + gap;
+
+    /*
+     * Start with the original set outside the left side,
+     * then move toward the right.
+     */
+    galleryPosition = -loopWidth;
   }
 
-  function nextSlide() {
-    const max = items.length - getVisible();
-    index = index < max ? index + 1 : 0;
-    showSlide();
+  function update3DCards() {
+    const wrapperBox = wrapper.getBoundingClientRect();
+    const wrapperCenter = wrapperBox.left + wrapperBox.width / 2;
+    const cards = gallery.querySelectorAll(".gallery-item");
+
+    cards.forEach(function (card) {
+      const cardBox = card.getBoundingClientRect();
+      const cardCenter = cardBox.left + cardBox.width / 2;
+
+      /*
+       * Position relative to viewport center:
+       * -1 means far left
+       *  0 means center
+       *  1 means far right
+       */
+      let normalized =
+        (cardCenter - wrapperCenter) / (wrapperBox.width / 2);
+
+      normalized = Math.max(-1.4, Math.min(1.4, normalized));
+
+      const distance = Math.min(1, Math.abs(normalized));
+
+      /*
+       * Side images rotate toward the center.
+       */
+      const rotation = normalized * -34;
+
+      /*
+       * Side images move backward into the hall.
+       */
+      const depth = distance * -210;
+
+      /*
+       * Center image is larger.
+       */
+      const scale = 1.06 - distance * 0.18;
+
+      /*
+       * Far images become slightly darker.
+       */
+      const opacity = 1 - distance * 0.35;
+
+      card.style.setProperty("--rotate", rotation + "deg");
+      card.style.setProperty("--depth", depth + "px");
+      card.style.setProperty("--scale", scale);
+      card.style.setProperty("--opacity", opacity);
+    });
   }
 
-  function prevSlide() {
-    const max = items.length - getVisible();
-    index = index > 0 ? index - 1 : max;
-    showSlide();
+  function animate(currentTime) {
+    const deltaTime = Math.min(
+      (currentTime - previousTime) / 1000,
+      0.05
+    );
+
+    previousTime = currentTime;
+
+    if (!paused && loopWidth > 0) {
+      /*
+       * Positive value moves images left to right.
+       */
+      galleryPosition += movementSpeed * deltaTime;
+
+      /*
+       * Reset invisibly when one full set has passed.
+       */
+      if (galleryPosition >= 0) {
+        galleryPosition -= loopWidth;
+      }
+    }
+
+    gallery.style.transform =
+      "translate3d(" + galleryPosition + "px, 0, 0)";
+
+    update3DCards();
+
+    requestAnimationFrame(animate);
   }
 
-  nextBtn.addEventListener("click", nextSlide);
-  prevBtn.addEventListener("click", prevSlide);
+  /* Pause when the mouse is over the gallery */
+  wrapper.addEventListener("mouseenter", function () {
+    paused = true;
+  });
 
-  function startAuto() { autoSlide = setInterval(nextSlide, 2500); }
-  function stopAuto()  { clearInterval(autoSlide); }
+  wrapper.addEventListener("mouseleave", function () {
+    paused = false;
+  });
 
-  gallery.addEventListener("mouseenter", stopAuto);
-  gallery.addEventListener("mouseleave", startAuto);
+  /* Pause while touching on mobile */
+  wrapper.addEventListener(
+    "touchstart",
+    function () {
+      paused = true;
+    },
+    { passive: true }
+  );
 
-  startAuto();
-  window.addEventListener("resize", showSlide);
-})();
+  wrapper.addEventListener(
+    "touchend",
+    function () {
+      paused = false;
+    },
+    { passive: true }
+  );
+
+  window.addEventListener("resize", function () {
+    calculateSizes();
+    update3DCards();
+  });
+
+  calculateSizes();
+  requestAnimationFrame(animate);
+});
+
+
+// (function () {
+//   const gallery = document.querySelector(".gallery");
+//   const items   = document.querySelectorAll(".gallery-item");
+//   const nextBtn = document.querySelector(".next-btn");
+//   const prevBtn = document.querySelector(".prev-btn");
+//   if (!gallery || !items.length) return;
+
+//   let index = 0;
+//   let autoSlide;
+
+//   function getItemWidth() {
+//     const item   = items[0];
+//     const style  = getComputedStyle(item);
+//     const margin = parseInt(style.marginRight) || 12;
+//     return item.offsetWidth + margin;
+//   }
+
+//   function getVisible() {
+//     const ww = document.querySelector(".gallery-wrapper").offsetWidth;
+//     return Math.max(1, Math.floor(ww / getItemWidth()));
+//   }
+
+//   function showSlide() {
+//     gallery.style.transform = `translateX(-${index * getItemWidth()}px)`;
+//   }
+
+//   function nextSlide() {
+//     const max = items.length - getVisible();
+//     index = index < max ? index + 1 : 0;
+//     showSlide();
+//   }
+
+//   function prevSlide() {
+//     const max = items.length - getVisible();
+//     index = index > 0 ? index - 1 : max;
+//     showSlide();
+//   }
+
+//   nextBtn.addEventListener("click", nextSlide);
+//   prevBtn.addEventListener("click", prevSlide);
+
+//   function startAuto() { autoSlide = setInterval(nextSlide, 2500); }
+//   function stopAuto()  { clearInterval(autoSlide); }
+
+//   gallery.addEventListener("mouseenter", stopAuto);
+//   gallery.addEventListener("mouseleave", startAuto);
+
+//   startAuto();
+//   window.addEventListener("resize", showSlide);
+// })();
 
 /* ===== BACK TO TOP ===== */
 (function () {
