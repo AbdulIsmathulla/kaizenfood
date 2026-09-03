@@ -2146,3 +2146,10 @@ body {
   border-radius: 4cm;
   margin: 0;
 }
+
+/* =================== New menu =================== */
+#menu .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
