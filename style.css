@@ -2149,7 +2149,21 @@ body {
 
 /* =================== New menu =================== */
 #menu .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  #menu .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  #menu .menu-grid {
+    grid-template-columns: 1fr;
+  }
 }
