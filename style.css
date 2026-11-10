@@ -282,7 +282,7 @@ body {
   backdrop-filter: blur(4px);
 }
 
-.wave-text {
+/* .wave-text {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -298,7 +298,7 @@ body {
 .wave-text span {
   display: inline-block;
   animation: waveUp 2s ease-in-out 2;
-}
+} */
 
 @keyframes waveUp {
   0%,100% { transform: translateY(0); }
@@ -320,13 +320,11 @@ body {
 .wave-text span:nth-child(13) { animation-delay: 0.84s; }
 
 .hero-sub {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: rgba(255,255,255,0.80);
-  max-width: 520px;
-  margin: 0 auto 36px;
-  font-weight: 300;
+    font-family: 'FF Taweel', sans-serif !important;
+    font-size: 36px;
+    font-weight: normal;
+    line-height: 1.6;
 }
-
 .hero-ctas {
   display: flex;
   gap: 14px;
@@ -415,23 +413,24 @@ body {
 }
 
 .section-heading {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: clamp(1.9rem, 4vw, 3rem);
-  color: var(--ink);
-  line-height: 1.15;
-  margin-bottom: 16px;
+    font-family: 'FF Taweel', sans-serif !important;
+    font-weight: normal;
+    font-size:100px;
 }
 
 .section-heading span {
-  color: var(--crimson);
+    font-family: 'FF Taweel', sans-serif !important;
 }
 
 .section-sub {
-  color: var(--muted);
-  font-size: 1.0rem;
-  max-width: 560px;
-  line-height: 1.7;
+    font-family: 'FF Taweel', sans-serif !important;
+    font-weight: normal;
+    color: #0b0b0b;
+    font-size: 24px;
+    max-width: 560px;
+    line-height: 1.5;
+    word-spacing: 4px;
+    opacity: 1;
 }
 
 /* ===== SLIDE ANIMATION ===== */
@@ -549,7 +548,7 @@ body {
 }
 
 .stat-num {
-  font-family: 'Playfair Display', serif;
+  font-family: 'FF Taweel', sans-serif !important;
   font-size: clamp(2.4rem, 5vw, 3.6rem);
   font-weight: 900;
   background: linear-gradient(135deg, var(--gold), #ffcd6b);
@@ -560,10 +559,11 @@ body {
 }
 
 .stat-label {
+   font-family: 'FF Taweel', sans-serif !important;
   color: rgba(255,255,255,0.65);
-  font-size: 0.85rem;
+  font-size: 36px;
   letter-spacing: 0.5px;
-  margin-top: 6px;
+  /* margin-top: 2px; */
 }
 
 /* ===== GALLERY ===== */
@@ -2169,4 +2169,40 @@ body {
   #menu .menu-grid {
     grid-template-columns: 1fr;
   }
+}
+/* ==========================font============================== */
+@font-face {
+    font-family: 'FF Taweel';
+    src: url('Assets/font/FF-Taweel-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.ff-taweel {
+    font-family: 'FF Taweel', sans-serif !important;
+    font-size: 24px !important;
+}
+
+.kaizen-font {
+    font-family: 'FF Taweel', sans-serif !important;
+    font-size: 36px !important;
+}
+
+.wave-text {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    font-family: 'FF Taweel', sans-serif !important;
+    font-weight: normal;
+    font-size: clamp(3.5rem, 10vw, 9rem);
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.wave-text span {
+    display: inline-block;
+    font-family: 'FF Taweel', sans-serif !important;
+    animation: waveUp 2s ease-in-out 2;
 }
