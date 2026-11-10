@@ -5,7 +5,7 @@
   --ink:       #0f0f0f;
   --paper:     #fafaf7;
   --crimson:   #d42b2b;
-  --gold:      #e8a020;
+  --gold:      #F9CF1F;
   --teal:      #1a7f6e;
   --sky:       #e8f4f0;
   --muted:     #6b6b6b;
@@ -1581,6 +1581,8 @@ body {
   color: #fff;
   position: relative;
   overflow: hidden;
+  /* font-family: 'FF Taweel', sans-serif; */
+  font-family: 'Gotham', sans-serif;
 }
 
 .page-hero::before {
@@ -1591,7 +1593,8 @@ body {
 }
 
 .page-hero h1 {
-  font-family: 'Playfair Display', serif;
+  /* font-family: 'Playfair Display', serif; */
+  font-family: 'Gotham', sans-serif;
   font-weight: 900;
   font-size: clamp(2.2rem, 5vw, 4rem);
   position: relative; z-index: 1;
