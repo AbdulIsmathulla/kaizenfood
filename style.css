@@ -1196,6 +1196,11 @@ body {
   object-fit: contain;
 }
 
+@keyframes scrollDelivery {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /* ===== VIDEO SECTION ===== */
 #video {
   padding: 100px 0;
