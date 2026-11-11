@@ -55,6 +55,7 @@ body {
 }
 
 .loader-text {
+
   display: flex;
   gap: 4px;
 }
@@ -62,8 +63,9 @@ body {
 .loader-text span {
   display: inline-block;
   color: #fff;
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 5vw, 64px);
+  font-family: 'FF Taweel', sans-serif !important;
+  font-family: '', serif;
+  font-size: 100px;
   font-weight: 900;
   animation: letterBounce 1.2s ease-in-out infinite;
 }
@@ -415,7 +417,7 @@ body {
 .section-heading {
     font-family: 'FF Taweel', sans-serif !important;
     font-weight: normal;
-    font-size:100px;
+    font-size:80px;
 }
 
 .section-heading span {
@@ -464,7 +466,7 @@ body {
   max-width: 480px;
   border-radius: 24px;
   object-fit: cover;
-  height: 440px;
+  height: 650px;
   box-shadow: var(--shadow);
   display: block;
   margin: 0 auto;
@@ -483,8 +485,8 @@ body {
   box-shadow: 0 8px 24px rgba(212,43,43,0.35);
 }
 
-.about-badge .big { font-size: 2rem; font-family: 'Playfair Display', serif; display: block; }
-.about-badge .sm  { font-size: 0.75rem; letter-spacing: 1px; opacity: 0.9; }
+.about-badge .big { font-size: 2rem; font-family: 'FF Taweel', serif; display: block; }
+.about-badge .sm  { font-size: 1.2rem; font-family: 'FF Taweel', serif; letter-spacing: 1px; opacity: 0.9; }
 
 .about-features {
   display: flex;
@@ -1120,16 +1122,18 @@ body {
 }
 
 .split-content h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
+  font-family: 'FF Taweel', sans-serif !important;
+  font-size: 2.5rem;
   font-weight: 900;
   margin-bottom: 16px;
 }
 
 .split-content p {
+  font-family: 'gotham font', sans-serif !important;
   color: var(--muted);
-  line-height: 1.8;
+  line-height: 1.4;
   font-size: 1rem;
+  color: #1c1818;
 }
 
 @media (max-width: 768px) {
@@ -1245,14 +1249,15 @@ body {
 }
 
 .colorful-menu .menu-info h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.15rem;
+  font-family: 'FF Taweel', sans-serif !important;;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 6px;
 }
 
 .colorful-menu .menu-info p {
+  font-family: 'gotham font', serif;
   font-size: 0.88rem;
   color: var(--muted);
   margin-bottom: 14px;
@@ -1323,14 +1328,14 @@ body {
 }
 
 .card__side--front h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
+  font-family: 'FF Taweel', sans-serif !important;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 4px;
 }
 
-.card__side--front p { font-size: 0.9rem; color: var(--muted); }
+.card__side--front p { font-size: 0.9rem; font-family: 'gotham font', sans-serif !important; color: var(--muted); }
 
 .card__side--back {
   transform: rotateY(180deg);
@@ -1340,6 +1345,7 @@ body {
 
 .card__details ul { list-style: none; padding: 0; }
 .card__details li {
+  font-family: 'gotham font', sans-serif !important;
   padding: 8px 0;
   font-size: 0.92rem;
   border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -1383,14 +1389,14 @@ body {
 .service-icon { font-size: 2.4rem; margin-bottom: 16px; }
 
 .service-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.15rem;
+  font-family: 'FF Taweel', sans-serif !important;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 10px;
   color: var(--ink);
 }
 
-.service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+.service-card p { font-size: 0.9rem; font-family: 'gotham font', sans-serif !important; color: var(--muted); line-height: 1.7; }
 
 /* ===== FOOTER ===== */
 .footer {
@@ -1415,8 +1421,8 @@ body {
 }
 
 .footer-brand-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-family: 'FF Taweel', serif;
+  font-size: 3rem;
   font-weight: 900;
   color: var(--gold);
   margin-bottom: 12px;
@@ -1424,6 +1430,7 @@ body {
 }
 
 .footer-brand-desc {
+  font-family: 'gotham font', serif;
   font-size: 0.88rem;
   line-height: 1.7;
   color: rgba(255,255,255,0.55);
@@ -1431,6 +1438,7 @@ body {
 }
 
 .footer-col h4 {
+  font-family: 'gotham font', serif;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -1440,6 +1448,7 @@ body {
 }
 
 .footer-col p, .footer-col a {
+   font-family: 'gotham font', serif;
   font-size: 0.9rem;
   color: rgba(255,255,255,0.65);
   text-decoration: none;
@@ -1814,8 +1823,9 @@ body {
 }
 
 .catering-heading span {
+    font-family: 'FF Taweel', sans-serif !important;
     display: block;
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 700;
     letter-spacing: 4px;
     margin-bottom: 8px;
@@ -1823,7 +1833,8 @@ body {
 }
 
 .catering-heading h2 {
-    font-size: 44px;
+    font-family: 'FF Taweel', sans-serif !important;
+    font-size: 60px;
     margin: 0;
 }
 
@@ -1968,13 +1979,15 @@ body {
 }
 
 .catering-content h3 {
-    font-size: 37px;
+    font-family: 'FF Taweel', sans-serif !important;
+    font-size: 60px;
     font-weight: 700;
 
     margin: 0 0 12px;
 }
 
 .catering-content h4 {
+    font-family: 'gotham font', sans-serif !important;
     font-size: 18px;
     font-weight: 600;
 
@@ -1995,7 +2008,7 @@ body {
 
 .catering-list li {
     position: relative;
-
+    font-family: 'gotham font', sans-serif !important;
     padding: 13px 0 13px 34px;
 
     font-size: 15px;
@@ -2006,7 +2019,7 @@ body {
 
 .catering-list li::before {
     content: "✓";
-
+    font-family: 'gotham font', sans-serif !important;
     position: absolute;
 
     left: 0;
