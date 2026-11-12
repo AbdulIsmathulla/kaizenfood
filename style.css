@@ -428,10 +428,10 @@ body {
     font-family: 'gotham font', sans-serif !important;
     font-weight: normal;
     color: #0b0b0b;
-    font-size: 24px;
+    font-size: 18px;
     max-width: 560px;
     line-height: 1.5;
-    word-spacing: 4px;
+    /* word-spacing: 2px; */
     opacity: 1;
 }
 
